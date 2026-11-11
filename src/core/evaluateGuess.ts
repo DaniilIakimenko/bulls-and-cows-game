@@ -1,0 +1,8 @@
+export function evaluateGuess(
+  secret: string,
+  guess: string,
+): { bulls: number; cows: number } {
+  void secret;
+  void guess;
+  throw new Error('not implemented');
+}
