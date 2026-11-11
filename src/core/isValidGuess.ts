@@ -1,3 +1,4 @@
+import { createDigitValidator } from './createDigitValidator.js';
 import type { Base } from './types.js';
 
 export function isValidGuess(
@@ -5,9 +6,10 @@ export function isValidGuess(
   length: number,
   base: Base,
 ): boolean {
-  void guess;
-  void length;
-  void base;
+  const isValidChar = createDigitValidator(base);
+  const isValidChars = [...guess].every(isValidChar);
+  const isValidLength = guess.length === length;
+  const isCharsUniq = new Set(guess.toLowerCase()).size === guess.length;
 
-  throw new Error('not implemented');
+  return isValidLength && isValidChars && isCharsUniq;
 }
