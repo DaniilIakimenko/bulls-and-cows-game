@@ -2,7 +2,16 @@ export function evaluateGuess(
   secret: string,
   guess: string,
 ): { bulls: number; cows: number } {
-  void secret;
-  void guess;
-  throw new Error('not implemented');
+  const secretArr = [...secret.toLowerCase()];
+  const guessArr = [...guess.toLowerCase()];
+
+  const common = guessArr.filter((g) => secretArr.includes(g)).length;
+  const bulls = guessArr.reduce(
+    (acc, currentChar, index) =>
+      currentChar === secretArr[index] ? acc + 1 : acc,
+    0,
+  );
+  const cows = common - bulls;
+
+  return { bulls, cows };
 }
