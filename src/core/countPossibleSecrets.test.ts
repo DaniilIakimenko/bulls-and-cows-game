@@ -19,7 +19,7 @@ describe('countPossibleSecrets', () => {
   });
 
   it('При длине 3 для bin 0 вариантов', () => {
-    expect(countPossibleSecrets(0, 'bin')).toBe(0);
+    expect(countPossibleSecrets(3, 'bin')).toBe(0);
   });
 
   it('При длине 2 для hex 240 вариантов', () => {
